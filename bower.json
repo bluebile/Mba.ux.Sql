@@ -1,13 +1,13 @@
 {
-    "name": "Mba.ux.Model",
+    "name": "Mba.ux.Sql",
     "version": "0.0.1",
-    "homepage": "https://github.com/bluebile/Mba.ux.Model",
+    "homepage": "https://github.com/bluebile/Mba.ux.Sql",
     "authors": [
         "Bluebile <info@bluebile.com>"
     ],
-    "description": "Melhorias na model do Sencha Touch",
+    "description": "Melhorias consultas SQL",
     "main": [
-        "Model.js"
+        "Sql.js"
     ],
     "keywords": [
         "senchatouch",
