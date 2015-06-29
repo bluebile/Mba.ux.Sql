@@ -11,6 +11,10 @@ Ext.define('Mba.ux.Sql', {
     alias: 'proxy.sql-improvements',
     xtype: 'sqlimprovements',
 
+    mixins: [
+        'Mba.ux.BuilderConfig.mixin.BuilderConfig'
+    ],
+
     initialize: function() {
         if (!this.initialConfig.callbackSelectClause) {
             this.initialConfig.callbackSelectClause = this.generateSqlSelect;
