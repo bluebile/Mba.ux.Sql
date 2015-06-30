@@ -10,6 +10,7 @@ Ext.define('Mba.ux.Sql', {
     extend: 'Ext.data.proxy.Sql',
     alias: 'proxy.sql-improvements',
     xtype: 'sqlimprovements',
+    requires: [ 'Mba.ux.Model' ],
 
     mixins: [
         'Mba.ux.BuilderConfig.mixin.BuilderConfig'
