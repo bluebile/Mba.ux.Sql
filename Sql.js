@@ -1,5 +1,4 @@
 /**
- * @class SisuTec.util.SqliteNative
  * @extends Ext.data.proxy.Sql
  * @Data 09/04/2015
  * @Ultima_revisão: dd/mm/yyyy
