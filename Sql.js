@@ -51,11 +51,11 @@ Ext.define('Mba.ux.Sql', {
         }
         var sql = [], str;
 
-        this.getModel().getFields().each(function(element, index) {
+        this.getModel().getFields().each(function(element) {
 
             if (Ext.isArray(fields)) {
                 flag = false;
-                if (Ext.Array.contains(fields,element.getName())) {
+                if (Ext.Array.contains(fields, element.getName())) {
                     flag = true;
                 }
             }
@@ -103,18 +103,16 @@ Ext.define('Mba.ux.Sql', {
         var me = this,
             table = me.getTable(),
             sql = 'SELECT ' + this.getColumnsSelect() + ' FROM ' + table,
-            idProperty = me.getModel().getIdProperty(),
-            sortStatement = ' ORDER BY ',
-            whereClause, orderClause;
+            idProperty = me.getModel().getIdProperty();
 
         if (!Ext.isObject(params)) {
-            sql += filterStatement + idProperty + ' = ' + params;
+            sql += ' WHERE ' + idProperty + ' = ' + params;
         } else {
             sql += this.getCallbackWhereClause().apply(me, [params]);
             sql += this.getCallbackOrderClause().apply(me, [params]);
 
             // handle start, limit, sort, filter and group params
-            if (params.page != undefined) {
+            if (typeof params.page !== undefined) {
                 sql += ' LIMIT ' + parseInt(params.start, 10) + ', ' + parseInt(params.limit, 10);
             }
         }
@@ -140,30 +138,30 @@ Ext.define('Mba.ux.Sql', {
             }
         }
 
-        return sql.length > 0 ? ' ORDER BY ' + sql: sql;
+        return sql.length > 0 ? ' ORDER BY ' + sql : sql;
     },
 
     applyFieldsMap: function() {
         var map = Ext.create('Ext.util.HashMap');
-        this.getModel().getFields().all.forEach(function(element, index, array) {
+        this.getModel().getFields().all.forEach(function(element) {
             var value = element.getMapping();
-            if (value == null) {
+            if (value === null) {
                 value = element.getName();
             }
-            map.add(element.getName(),value);
+            map.add(element.getName(), value);
         });
         return map;
     },
 
     applyFieldsMappingMap: function() {
         var map = Ext.create('Ext.util.HashMap');
-        this.getModel().getFields().all.forEach(function(element, index, array) {
+        this.getModel().getFields().all.forEach(function(element) {
             var value = element.getMapping();
-            if (value == null) {
+            if (value === null) {
                 value = element.getName();
             }
             if (!map.containsKey(value)) {
-                 map.add(value,element);
+                map.add(value, element);
             }
         });
         return map;
@@ -246,7 +244,7 @@ Ext.define('Mba.ux.Sql', {
             }
         }
 
-        return sql.length > 0 ? ' WHERE ' + sql: sql;
+        return sql.length > 0 ? ' WHERE ' + sql : sql;
     },
 
     selectCount: function(transaction, params, result) {
@@ -264,7 +262,7 @@ Ext.define('Mba.ux.Sql', {
             function(transaction, resultSet) {
                 result.setTotal(resultSet.rows.item(0).count);
             },
-            function(transaction, error) {
+            function() {
                 result.setSuccess(false);
                 result.setTotal(0);
                 result.setCount(0);
@@ -390,7 +388,7 @@ Ext.define('Mba.ux.Sql', {
                     callback.call(scope || me, operation);
                 }
             },
-            function(transaction) {
+            function() {
                 if (typeof callback === 'function') {
                     callback.call(scope || me, operation);
                 }

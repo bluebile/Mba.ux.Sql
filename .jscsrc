@@ -1,0 +1,61 @@
+{
+    "requireOperatorBeforeLineBreak": true,
+    "disallowMixedSpacesAndTabs": true,
+    "disallowNewlineBeforeBlockStatements": ["if", "else", "try", "catch", "finally", "do", "while", "for"],
+    "requireCurlyBraces": [ "if", "else", "for", "while", "do", "try", "catch" ],
+    "requireSpaceAfterKeywords": [ "if", "else", "typeof", "for", "while", "do", "switch", "return", "try", "catch" ],
+    "requireSpacesInFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+    "disallowSpacesInFunctionDeclaration": {
+        "beforeOpeningRoundBrace": true
+    },
+    "requireSpaceBeforeKeywords": [
+        "else",
+        "while",
+        "catch"
+    ],
+    "disallowSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+    "disallowSpacesInsideParentheses": true,
+    "disallowTrailingComma": true,
+    "disallowTrailingWhitespace": true,
+    "requireMultipleVarDecl": true,
+    "disallowSpaceAfterObjectKeys": true,
+    "requireCommaBeforeLineBreak": true,
+    "validateParameterSeparator": ", ",
+    "requireSpaceBeforeBlockStatements": true,
+    "disallowSpaceAfterPrefixUnaryOperators": true,
+    "disallowSpaceBeforeBinaryOperators": [ "," ],
+    "requireSpaceBetweenArguments": true,
+    "requireSpaceAfterBinaryOperators": [ "?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=" ],
+    "requireSpaceBeforeBinaryOperators": [ "?", "+", "-", "/", "*", ":", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<="],
+    "disallowKeywords": [ "with" ],
+    "requireCamelCaseOrUpperCaseIdentifiers": true,
+    "disallowMultipleLineStrings": true,
+    "disallowMultipleLineBreaks": true,
+    "disallowKeywordsOnNewLine": [ "else" ],
+    "validateLineBreaks": "LF",
+    "requireLineFeedAtFileEnd": true,
+    "disallowSpacesInCallExpression": true,
+    "validateQuoteMarks": "'",
+    "validateIndentation": 4,
+    "requireSpacesInConditionalExpression": {
+        "afterTest": true,
+        "beforeConsequent": true,
+        "afterConsequent": true,
+        "beforeAlternate": true
+    },
+    "maximumLineLength": {
+       "value": 120,
+       "allowComments": true,
+       "allowRegex": true
+    },
+    "requireLineFeedAtFileEnd": true,
+    "requireSpaceBeforeObjectValues": true,
+    "requireSpacesInForStatement": true,
+    "requireCapitalizedConstructors": true,
+    "maxErrors": null,
+    "excludeFiles": []
+}

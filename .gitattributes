@@ -1,0 +1,10 @@
+*.js        diff=javascript
+
+# não exportar arquivos de controle do git
+.gitattributes export-ignore
+.gitignore export-ignore
+.gitkeep export-ignore
+
+# arquivos de desenv
+/README.md export-ignore
+.editorconfig export-ignore

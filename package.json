@@ -1,0 +1,12 @@
+{
+    "name": "Mba.ux.Sql",
+    "version": "0.0.12",
+    "dependencies": {
+        "gulp": "^3.8.8",
+        "gulp-jshint": "https://github.com/bluebile/gulp-jshint.git",
+        "gulp-jscs": "https://github.com/bluebile/gulp-jscs.git",
+        "gulp-jscpd": "0.0.4",
+        "gulp-complexity": "0.3.0",
+        "minimist": "1.1.3"
+    }
+}
