@@ -6,7 +6,7 @@
  * Acrescente comentario indicando o que a classe faz, seu comportamento e responsabilidade
  */
 Ext.define('Mba.ux.Sql', {
-    extend: 'Ext.data.proxy.Sql',
+    extend: 'Ext.data.proxy.Sql',c
     alias: 'proxy.sql-improvements',
     xtype: 'sqlimprovements',
     requires: [ 'Mba.ux.Data.Model', 'Mba.ux.Data.Store' ],
@@ -178,7 +178,6 @@ Ext.define('Mba.ux.Sql', {
             if (column == this.getModel().getIdProperty()) {
                 value = data[this.getModel().prototype.config.idProperty.name];
             }
-            console.log(value);
             if (value !== 'undefined') {
                 values.push(value);
             }
