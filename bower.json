@@ -32,6 +32,6 @@
     ],
     "dependencies": {
         "Mba.ux.Data": "v0.0.2",
-        "Mba.ux.BuilderConfig": "v0.0.13"
+        "Mba.ux.BuilderConfig": "v0.0.12"
     }
 }
