@@ -6,7 +6,7 @@
  * Acrescente comentario indicando o que a classe faz, seu comportamento e responsabilidade
  */
 Ext.define('Mba.ux.Sql', {
-    extend: 'Ext.data.proxy.Sql',c
+    extend: 'Ext.data.proxy.Sql',
     alias: 'proxy.sql-improvements',
     xtype: 'sqlimprovements',
     requires: [ 'Mba.ux.Data.Model', 'Mba.ux.Data.Store' ],
