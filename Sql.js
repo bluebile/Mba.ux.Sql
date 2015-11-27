@@ -1,7 +1,7 @@
 /**
  * @extends Ext.data.proxy.Sql
  * @Data 09/04/2015
- * @Ultima_revisão: dd/mm/yyyy
+ * @Ultima_revisão: 27/11/2015
  *
  * Acrescente comentario indicando o que a classe faz, seu comportamento e responsabilidade
  */
@@ -178,6 +178,7 @@ Ext.define('Mba.ux.Sql', {
             if (column == this.getModel().getIdProperty()) {
                 value = data[this.getModel().prototype.config.idProperty.name];
             }
+            console.log(value);
             if (value !== 'undefined') {
                 values.push(value);
             }
@@ -393,5 +394,30 @@ Ext.define('Mba.ux.Sql', {
                 }
             }
         );
+    },
+    /*
+     * Remove todas a linhas da tabela
+     */
+    removeAll: function() {
+        var me = this,
+            _db = me.getDatabaseObject(),
+            _delete = "DELETE FROM " + me.getTable();
+
+        _db.transaction(function(tx) {
+            tx.executeSql(
+                _delete, 
+                [], 
+                function(result) {
+                    console.log('removeAll, result=');
+                    console.log(result);
+                },
+                function(tx, error) {
+                    console.log('removeAll, tx=');
+                    console.log(tx);
+                    console.log('removeAll, error=');
+                    console.log(error);
+                }
+            )
+        });
     }
 });
