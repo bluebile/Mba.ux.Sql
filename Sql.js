@@ -211,8 +211,8 @@ Ext.define('Mba.ux.Sql', {
                             sql += ' AND ';
                         }
                         orSQL = '';
+                        type = me.getFieldsMappingMap().get(property).getType().type;
                         Ext.each(value, function(valueEach) {
-                            type = me.getFieldsMappingMap().get(property).getType().type;
                             if (!filter.getCaseSensitive() && (type === 'string' || type === 'auto')) {
                                 valueEach += '';
                                 valueEach = valueEach.toLowerCase();
