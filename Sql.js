@@ -212,16 +212,17 @@ Ext.define('Mba.ux.Sql', {
                         }
                         orSQL = '';
                         Ext.each(value, function(valueEach) {
+                            var queryProperty = property;
                             type = me.getFieldsMappingMap().get(property).getType().type;
                             if (!filter.getCaseSensitive() && (type === 'string' || type === 'auto')) {
                                 valueEach += '';
                                 valueEach = valueEach.toLowerCase();
-                                property = 'LOWER(' + property + ')';
+                                queryProperty = 'LOWER(' + property + ')';
                             }
                             if (!filter.getAnyMatch() && (type === 'string' || type === 'auto')) {
                                 valueEach = '\'' + valueEach + '\'';
                             }
-                            orSQL += property + ' ' + (filter.getAnyMatch() ? ('LIKE \'%' +
+                            orSQL += queryProperty + ' ' + (filter.getAnyMatch() ? ('LIKE \'%' +
                                 valueEach + '%\'') : ('= ' + valueEach)) + ' OR ';
                         });
                         sql += '(' + orSQL.substring(0, orSQL.length - 3)  + ')';
