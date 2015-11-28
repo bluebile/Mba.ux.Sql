@@ -213,20 +213,15 @@ Ext.define('Mba.ux.Sql', {
                         orSQL = '';
                         type = me.getFieldsMappingMap().get(property).getType().type;
                         Ext.each(value, function(valueEach) {
-<<<<<<< HEAD
-=======
-                            var queryProperty = property;
-                            type = me.getFieldsMappingMap().get(property).getType().type;
->>>>>>> c52345588c3c5f94a5006d3e9bc8aacac1f136da
                             if (!filter.getCaseSensitive() && (type === 'string' || type === 'auto')) {
                                 valueEach += '';
                                 valueEach = valueEach.toLowerCase();
-                                queryProperty = 'LOWER(' + property + ')';
+                                property = 'LOWER(' + property + ')';
                             }
                             if (!filter.getAnyMatch() && (type === 'string' || type === 'auto')) {
                                 valueEach = '\'' + valueEach + '\'';
                             }
-                            orSQL += queryProperty + ' ' + (filter.getAnyMatch() ? ('LIKE \'%' +
+                            orSQL += property + ' ' + (filter.getAnyMatch() ? ('LIKE \'%' +
                                 valueEach + '%\'') : ('= ' + valueEach)) + ' OR ';
                         });
                         sql += '(' + orSQL.substring(0, orSQL.length - 3)  + ')';
