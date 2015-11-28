@@ -178,7 +178,7 @@ Ext.define('Mba.ux.Sql', {
             if (column == this.getModel().getIdProperty()) {
                 value = data[this.getModel().prototype.config.idProperty.name];
             }
-            console.log(value);
+
             if (value !== 'undefined') {
                 values.push(value);
             }
@@ -401,12 +401,12 @@ Ext.define('Mba.ux.Sql', {
     removeAll: function() {
         var me = this,
             _db = me.getDatabaseObject(),
-            _delete = "DELETE FROM " + me.getTable();
+            _delete = 'DELETE FROM ' + me.getTable();
 
         _db.transaction(function(tx) {
             tx.executeSql(
-                _delete, 
-                [], 
+                _delete,
+                [],
                 function(result) {
                     console.log('removeAll, result=');
                     console.log(result);
