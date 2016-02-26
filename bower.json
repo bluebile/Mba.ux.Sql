@@ -1,6 +1,6 @@
 {
     "name": "Mba.ux.Sql",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "homepage": "https://github.com/bluebile/Mba.ux.Sql",
     "authors": [
         "Bluebile <info@bluebile.com>"
@@ -31,7 +31,7 @@
         "tests"
     ],
     "dependencies": {
-        "Mba.ux.Data": "v0.0.2",
+        "Mba.ux.Data": "v0.0.5",
         "Mba.ux.BuilderConfig": "v0.0.12"
     }
 }
