@@ -1,6 +1,6 @@
 {
     "name": "Mba.ux.Sql",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "dependencies": {
         "gulp": "^3.8.8",
         "gulp-jshint": "https://github.com/bluebile/gulp-jshint.git",
