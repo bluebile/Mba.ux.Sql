@@ -378,8 +378,8 @@ Ext.define('Mba.ux.Sql', {
                         resultSet.setCount(filtered.items.length);
                         resultSet.setTotal(filtered.items.length);
 
-                        me.selectCount(transaction, params, resultSet);
                     }
+                    me.selectCount(transaction, params, resultSet);
                 });
             },
             function(transaction, error) {
