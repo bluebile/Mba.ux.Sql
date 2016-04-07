@@ -1,6 +1,10 @@
 CHANGELOG
 ===================
 
+* v0.0.24 (2016-04-07)
+
+ * bug fix [Dependencia Mba.ux.Data]
+
 * v0.0.23 (2016-03-28)
 
  * bug fix [Dependencia Mba.ux.Data]
