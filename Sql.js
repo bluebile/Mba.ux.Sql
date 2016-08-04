@@ -63,6 +63,9 @@ Ext.define('Mba.ux.Sql', {
                 str = element.getName();
                 if (element.getMapping()) {
                     str = element.getMapping() + ' AS ' + element.getName();
+                    if (element.getMapping().indexOf(' THEN ') !== -1) {
+                        str = element.getMapping() + ' END ' + element.getName();
+                    }
                 }
 
                 sql.push(str);
