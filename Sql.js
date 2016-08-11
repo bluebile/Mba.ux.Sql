@@ -34,6 +34,7 @@ Ext.define('Mba.ux.Sql', {
 
     config: {
         columnsSelect: '*',
+        callbackSelectCount: null,
         callbackSelectClause: null,
         callbackWhereClause: null,
         callbackOrderClause: null,
@@ -253,12 +254,20 @@ Ext.define('Mba.ux.Sql', {
     selectCount: function(transaction, params, result) {
         var me = this,
             table = me.getTable(),
-            sql = 'SELECT COUNT(*) count FROM ' + table, whereClause;
+            sql = 'SELECT COUNT(*) count FROM ' + table, whereClause, count = this.getCallbackSelectCount();
 
-        whereClause = this.getCallbackWhereClause().apply(me, [params]);
+        if (count) {
+            if (typeof count === 'number') {
+                result.setTotal(this.getCallbackSelectCount());
+                return;
+            }
+            sql = this.getCallbackSelectCount();
+        } else {
+            whereClause = this.getCallbackWhereClause().apply(me, [params]);
 
-        if (whereClause) {
-            sql += whereClause;
+            if (whereClause) {
+                sql += whereClause;
+            }
         }
 
         transaction.executeSql(sql, null,
@@ -291,7 +300,6 @@ Ext.define('Mba.ux.Sql', {
             function(transaction, resultSet) {
                 rows = resultSet.rows;
                 count = rows.length;
-
                 for (i = 0, ln = count; i < ln; i++) {
                     data = rows.item(i);
                     records.push({
@@ -357,6 +365,7 @@ Ext.define('Mba.ux.Sql', {
 
                 me.selectRecords(transaction, id != undefined ? id : params, function(resultSet, error) {
                     if (operation.process(operation.getAction(), resultSet) == false) {
+                        alert('ex');
                         me.fireEvent('exception', me, operation);
                     }
 
