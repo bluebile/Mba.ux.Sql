@@ -365,7 +365,7 @@ Ext.define('Mba.ux.Sql', {
 
                 me.selectRecords(transaction, id != undefined ? id : params, function(resultSet, error) {
                     if (operation.process(operation.getAction(), resultSet) == false) {
-                        alert('ex');
+                        console.log('exception');
                         me.fireEvent('exception', me, operation);
                     }
 
@@ -413,7 +413,8 @@ Ext.define('Mba.ux.Sql', {
     removeAll: function() {
         var me = this,
             _db = me.getDatabaseObject(),
-            _delete = 'DELETE FROM ' + me.getTable();
+            _delete = 'DELETE FROM ' + me.getTable(), deferred = Ext.create('Ext.ux.Deferred'),
+            promise  = deferred.promise();
 
         _db.transaction(function(tx) {
             tx.executeSql(
@@ -422,14 +423,17 @@ Ext.define('Mba.ux.Sql', {
                 function(result) {
                     console.log('removeAll, result=');
                     console.log(result);
+                    deferred.resolve();
                 },
                 function(tx, error) {
                     console.log('removeAll, tx=');
                     console.log(tx);
                     console.log('removeAll, error=');
                     console.log(error);
+                    deferred.reject(error);
                 }
             )
         });
+        return promise;
     }
 });
